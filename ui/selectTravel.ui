@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>selectTravelWindow</class>
+ <widget class="QWidget" name="selectTravelWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>550</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Selecting Travel</string>
+  </property>
+  <widget class="QWidget" name="mainWidget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>400</width>
+     <height>550</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QWidget{
+background-color:rgb(7, 25, 23);
+}
+QPushButton{
+background-color:rgb(72, 168, 96);
+color:rgb(0,0,0);
+border:none;
+border-radius:5px;
+}
+QPushButton:hover{
+background-color:rgb(52, 148, 76);
+}
+QPushButton#githubButton {
+background-color:rgba(0,0,0,0);
+border:none;
+margin:0px 10px 10px 0px;
+}
+QListWidget{
+border:1px solid rgb(128,128,128);;
+}
+QListWidget::item{
+background-color:rgb(72, 168, 96);
+color:black;
+border:1px solid black;
+height:20px;
+}
+QListWidget::item:hover{
+background-color:rgb(52, 138, 76);
+}</string>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_3">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item alignment="Qt::AlignHCenter">
+     <widget class="QLabel" name="titleLabel">
+      <property name="font">
+       <font>
+        <pointsize>30</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Travel Manager</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <property name="topMargin">
+       <number>10</number>
+      </property>
+      <item alignment="Qt::AlignHCenter">
+       <widget class="QLabel" name="selectLabel">
+        <property name="font">
+         <font>
+          <pointsize>13</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Select Travel from list:</string>
+        </property>
+       </widget>
+      </item>
+      <item alignment="Qt::AlignHCenter">
+       <widget class="QListWidget" name="travelList">
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="movement">
+         <enum>QListView::Free</enum>
+        </property>
+        <item>
+         <property name="text">
+          <string>Aligment test</string>
+         </property>
+         <property name="textAlignment">
+          <set>AlignCenter</set>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item alignment="Qt::AlignHCenter">
+       <widget class="QLabel" name="orLabel">
+        <property name="text">
+         <string>or</string>
+        </property>
+       </widget>
+      </item>
+      <item alignment="Qt::AlignHCenter">
+       <widget class="QPushButton" name="createButton">
+        <property name="minimumSize">
+         <size>
+          <width>130</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>Create New Travel</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item alignment="Qt::AlignRight">
+     <widget class="QPushButton" name="githubButton">
+      <property name="minimumSize">
+       <size>
+        <width>60</width>
+        <height>50</height>
+       </size>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="../assets/res.qrc">
+        <normaloff>:/Images/github-mark-white.png</normaloff>:/Images/github-mark-white.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>46</width>
+        <height>46</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources>
+  <include location="../assets/res.qrc"/>
+ </resources>
+ <connections/>
+</ui>

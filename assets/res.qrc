@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="Images">
+    <file>github-mark-white.png</file>
+  </qresource>
+</RCC>

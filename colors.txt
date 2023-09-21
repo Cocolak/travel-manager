@@ -1,0 +1,4 @@
+background - rgb(7, 25, 23)
+primary - rgb(72, 168, 96)
+secondary - rgb(245, 118, 26)
+error - rgb(206, 2, 121)
