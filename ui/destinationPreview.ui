@@ -22,6 +22,23 @@
      <height>480</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">QWidget{
+background-color:rgb(7, 25, 23);
+}
+QPushButton{
+background-color:rgb(72, 168, 96);
+color:rgb(0,0,0);
+border:none;
+border-radius:5px;
+}
+QPushButton:hover{
+background-color:rgb(52, 148, 76);
+}
+QPlainTextEdit {
+border: 1px solid rgb(128,128,128);
+}</string>
+   </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <property name="spacing">
      <number>6</number>
@@ -134,7 +151,7 @@
       <item>
        <layout class="QHBoxLayout" name="costsStarsLayout">
         <property name="spacing">
-         <number>0</number>
+         <number>3</number>
         </property>
         <item>
          <widget class="QPushButton" name="costsStar_1">
@@ -247,7 +264,7 @@
       <item>
        <layout class="QHBoxLayout" name="profitabilityStarsLayout">
         <property name="spacing">
-         <number>0</number>
+         <number>3</number>
         </property>
         <item>
          <widget class="QPushButton" name="profitabilityStar_1">
@@ -360,7 +377,7 @@
       <item>
        <layout class="QHBoxLayout" name="attractionsStarsLayout">
         <property name="spacing">
-         <number>0</number>
+         <number>3</number>
         </property>
         <item>
          <widget class="QPushButton" name="attractionsStar_1">
@@ -473,7 +490,7 @@
       <item>
        <layout class="QHBoxLayout" name="transportStarsLayout">
         <property name="spacing">
-         <number>0</number>
+         <number>3</number>
         </property>
         <item>
          <widget class="QPushButton" name="transportStar_1">
@@ -586,7 +603,7 @@
       <item>
        <layout class="QHBoxLayout" name="gastronomyStarsLayout">
         <property name="spacing">
-         <number>0</number>
+         <number>3</number>
         </property>
         <item>
          <widget class="QPushButton" name="gastronomyStar_1">
@@ -699,7 +716,7 @@
       <item>
        <layout class="QHBoxLayout" name="landscapesStarsLayout">
         <property name="spacing">
-         <number>0</number>
+         <number>3</number>
         </property>
         <item>
          <widget class="QPushButton" name="lanscapesStar_1">

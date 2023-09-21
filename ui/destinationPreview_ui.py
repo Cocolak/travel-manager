@@ -26,6 +26,21 @@ class Ui_destinationPreviewWindow(object):
         self.mainWidget = QWidget(destinationPreviewWindow)
         self.mainWidget.setObjectName(u"mainWidget")
         self.mainWidget.setGeometry(QRect(0, 0, 350, 480))
+        self.mainWidget.setStyleSheet(u"QWidget{\n"
+"background-color:rgb(7, 25, 23);\n"
+"}\n"
+"QPushButton{\n"
+"background-color:rgb(72, 168, 96);\n"
+"color:rgb(0,0,0);\n"
+"border:none;\n"
+"border-radius:5px;\n"
+"}\n"
+"QPushButton:hover{\n"
+"background-color:rgb(52, 148, 76);\n"
+"}\n"
+"QPlainTextEdit {\n"
+"border: 1px solid rgb(128,128,128);\n"
+"}")
         self.verticalLayout = QVBoxLayout(self.mainWidget)
         self.verticalLayout.setSpacing(6)
         self.verticalLayout.setObjectName(u"verticalLayout")
@@ -102,7 +117,7 @@ class Ui_destinationPreviewWindow(object):
         self.costsLayout.addWidget(self.costsLabel, 0, Qt.AlignHCenter)
 
         self.costsStarsLayout = QHBoxLayout()
-        self.costsStarsLayout.setSpacing(0)
+        self.costsStarsLayout.setSpacing(3)
         self.costsStarsLayout.setObjectName(u"costsStarsLayout")
         self.costsStar_1 = QPushButton(self.mainWidget)
         self.costsStar_1.setObjectName(u"costsStar_1")
@@ -153,7 +168,7 @@ class Ui_destinationPreviewWindow(object):
         self.profitabilityLayout.addWidget(self.profitabilityLabel, 0, Qt.AlignHCenter)
 
         self.profitabilityStarsLayout = QHBoxLayout()
-        self.profitabilityStarsLayout.setSpacing(0)
+        self.profitabilityStarsLayout.setSpacing(3)
         self.profitabilityStarsLayout.setObjectName(u"profitabilityStarsLayout")
         self.profitabilityStar_1 = QPushButton(self.mainWidget)
         self.profitabilityStar_1.setObjectName(u"profitabilityStar_1")
@@ -204,7 +219,7 @@ class Ui_destinationPreviewWindow(object):
         self.attractionsLayout.addWidget(self.attractionsLabel, 0, Qt.AlignHCenter)
 
         self.attractionsStarsLayout = QHBoxLayout()
-        self.attractionsStarsLayout.setSpacing(0)
+        self.attractionsStarsLayout.setSpacing(3)
         self.attractionsStarsLayout.setObjectName(u"attractionsStarsLayout")
         self.attractionsStar_1 = QPushButton(self.mainWidget)
         self.attractionsStar_1.setObjectName(u"attractionsStar_1")
@@ -255,7 +270,7 @@ class Ui_destinationPreviewWindow(object):
         self.transportLayout.addWidget(self.transportLabel, 0, Qt.AlignHCenter)
 
         self.transportStarsLayout = QHBoxLayout()
-        self.transportStarsLayout.setSpacing(0)
+        self.transportStarsLayout.setSpacing(3)
         self.transportStarsLayout.setObjectName(u"transportStarsLayout")
         self.transportStar_1 = QPushButton(self.mainWidget)
         self.transportStar_1.setObjectName(u"transportStar_1")
@@ -306,7 +321,7 @@ class Ui_destinationPreviewWindow(object):
         self.gastronomyLayout.addWidget(self.gastronomyLabel, 0, Qt.AlignHCenter)
 
         self.gastronomyStarsLayout = QHBoxLayout()
-        self.gastronomyStarsLayout.setSpacing(0)
+        self.gastronomyStarsLayout.setSpacing(3)
         self.gastronomyStarsLayout.setObjectName(u"gastronomyStarsLayout")
         self.gastronomyStar_1 = QPushButton(self.mainWidget)
         self.gastronomyStar_1.setObjectName(u"gastronomyStar_1")
@@ -357,7 +372,7 @@ class Ui_destinationPreviewWindow(object):
         self.landscapesLayout.addWidget(self.lanscapesLabel, 0, Qt.AlignHCenter)
 
         self.landscapesStarsLayout = QHBoxLayout()
-        self.landscapesStarsLayout.setSpacing(0)
+        self.landscapesStarsLayout.setSpacing(3)
         self.landscapesStarsLayout.setObjectName(u"landscapesStarsLayout")
         self.lanscapesStar_1 = QPushButton(self.mainWidget)
         self.lanscapesStar_1.setObjectName(u"lanscapesStar_1")

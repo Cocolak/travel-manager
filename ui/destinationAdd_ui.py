@@ -26,6 +26,21 @@ class Ui_destinationAddWindow(object):
         self.mainWidget = QWidget(destinationAddWindow)
         self.mainWidget.setObjectName(u"mainWidget")
         self.mainWidget.setGeometry(QRect(0, 0, 350, 250))
+        self.mainWidget.setStyleSheet(u"QWidget{\n"
+"background-color:rgb(7, 25, 23);\n"
+"}\n"
+"QPushButton{\n"
+"background-color:rgb(72, 168, 96);\n"
+"color:rgb(0,0,0);\n"
+"border:none;\n"
+"border-radius:5px;\n"
+"}\n"
+"QPushButton:hover{\n"
+"background-color:rgb(52, 148, 76);\n"
+"}\n"
+"QPlainTextEdit {\n"
+"border: 1px solid rgb(128,128,128);\n"
+"}")
         self.verticalLayout_3 = QVBoxLayout(self.mainWidget)
         self.verticalLayout_3.setSpacing(0)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
@@ -105,11 +120,15 @@ class Ui_destinationAddWindow(object):
         self.buttonsLayout.setObjectName(u"buttonsLayout")
         self.addButton = QPushButton(self.mainWidget)
         self.addButton.setObjectName(u"addButton")
+        self.addButton.setMinimumSize(QSize(100, 25))
+        self.addButton.setSizeIncrement(QSize(100, 0))
 
         self.buttonsLayout.addWidget(self.addButton, 0, Qt.AlignHCenter)
 
         self.cancelButton = QPushButton(self.mainWidget)
         self.cancelButton.setObjectName(u"cancelButton")
+        self.cancelButton.setMinimumSize(QSize(100, 25))
+        self.cancelButton.setSizeIncrement(QSize(100, 0))
 
         self.buttonsLayout.addWidget(self.cancelButton, 0, Qt.AlignHCenter)
 
