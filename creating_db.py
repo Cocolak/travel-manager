@@ -8,11 +8,11 @@ def createDestinantionTable():
                                 town TEXT NOT NULL,
                                 description TEXT,
                                 costs INTEGER,
+                                profitability INTEGER,
                                 attractions INTEGER,
                                 transport INTEGER,
                                 gastronomy INTEGER,
-                                landscapes INTEGER,
-                                score_avarge REAL)""")
+                                landscapes INTEGER)""")
 
 def createTravelsTable():
     cur.execute("""CREATE TABLE travels(
@@ -36,12 +36,13 @@ def createTravel_DestinationsTable():
 con = sqlite3.connect("database.db")
 cur = con.cursor()
 
-createDestinantionTable()
-createTravel_DestinationsTable()
-createTravelsTable()
+#createDestinantionTable()
+#createTravel_DestinationsTable()
+#createTravelsTable()
 
 
-#cur.execute("INSERT INTO destinations (name, country, town, description, costs,attractions, transport, gastronomy, landscapes, score_avarge) VALUES ('test1', 'Polska', 'Rakszawa', 'Brak', 1 , 1, 2, 2, 4, 5)")
+
+cur.execute("INSERT INTO destinations (name, country, town, description, costs,profitability,attractions, transport, gastronomy, landscapes) VALUES ('test1', 'Polska', 'Rakszawa', 'Brak', 1 , 1, 2, 2, 4, 5)")
 #cur.execute("INSERT INTO travels (name,budget,from_date,to_date,total_expenses) VALUES ('testTravel', 1234.3, '13-2000', '15-2000', 1000.4)")
 #cur.execute("INSERT INTO travel_destinations (travel_id, destination_id) VALUES (3, 4)")
-#con.commit()
+con.commit()
