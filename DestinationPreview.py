@@ -4,15 +4,36 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_destinationPreviewWindow(object):
     def setupUi(self, destinationPreviewWindow, selectedItem):
+        self.conn = sqlite3.connect("database.db")
+        self.cur = self.conn.cursor()
+        self.selectedItem = selectedItem
+
         destinationPreviewWindow.setObjectName("destinationPreviewWindow")
-        destinationPreviewWindow.resize(350, 480)
+        destinationPreviewWindow.setFixedSize(350, 480)
         self.mainWidget = QtWidgets.QWidget(destinationPreviewWindow)
         self.mainWidget.setGeometry(QtCore.QRect(0, 0, 350, 480))
+        self.mainWidget.setStyleSheet("QWidget{\n"
+"background-color:rgb(7, 25, 23);\n"
+"}\n"
+"QPushButton{\n"
+"background-color:rgb(72, 168, 96);\n"
+"color:rgb(0,0,0);\n"
+"border:none;\n"
+"border-radius:5px;\n"
+"}\n"
+"QPushButton:hover{\n"
+"background-color:rgb(52, 148, 76);\n"
+"}\n"
+"QPlainTextEdit {\n"
+"border: 1px solid rgb(128,128,128);\n"
+"}")
         self.mainWidget.setObjectName("mainWidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.mainWidget)
         self.verticalLayout.setContentsMargins(6, 6, 6, 6)
         self.verticalLayout.setSpacing(6)
         self.verticalLayout.setObjectName("verticalLayout")
+
+            # Name
         self.nameLayout = QtWidgets.QHBoxLayout()
         self.nameLayout.setObjectName("nameLayout")
         self.nameLabel = QtWidgets.QLabel(self.mainWidget)
@@ -23,6 +44,8 @@ class Ui_destinationPreviewWindow(object):
         self.namePlainTextEdit.setObjectName("namePlainTextEdit")
         self.nameLayout.addWidget(self.namePlainTextEdit)
         self.verticalLayout.addLayout(self.nameLayout)
+
+            # Country
         self.countryLayout = QtWidgets.QHBoxLayout()
         self.countryLayout.setObjectName("countryLayout")
         self.countryLabel = QtWidgets.QLabel(self.mainWidget)
@@ -33,6 +56,8 @@ class Ui_destinationPreviewWindow(object):
         self.countryPlainTextEdit.setObjectName("countryPlainTextEdit")
         self.countryLayout.addWidget(self.countryPlainTextEdit)
         self.verticalLayout.addLayout(self.countryLayout)
+
+            # Town
         self.townLayout = QtWidgets.QHBoxLayout()
         self.townLayout.setObjectName("townLayout")
         self.townLabel = QtWidgets.QLabel(self.mainWidget)
@@ -43,6 +68,8 @@ class Ui_destinationPreviewWindow(object):
         self.townPlainTextEdit.setObjectName("townPlainTextEdit")
         self.townLayout.addWidget(self.townPlainTextEdit)
         self.verticalLayout.addLayout(self.townLayout)
+
+            # Description
         self.descLayout = QtWidgets.QHBoxLayout()
         self.descLayout.setObjectName("descLayout")
         self.descLabel = QtWidgets.QLabel(self.mainWidget)
@@ -53,13 +80,15 @@ class Ui_destinationPreviewWindow(object):
         self.descPlainTextEdit.setObjectName("descPlainTextEdit")
         self.descLayout.addWidget(self.descPlainTextEdit)
         self.verticalLayout.addLayout(self.descLayout)
+
+            # Costs
         self.costsLayout = QtWidgets.QHBoxLayout()
         self.costsLayout.setObjectName("costsLayout")
         self.costsLabel = QtWidgets.QLabel(self.mainWidget)
         self.costsLabel.setObjectName("costsLabel")
         self.costsLayout.addWidget(self.costsLabel, 0, QtCore.Qt.AlignHCenter)
         self.costsStarsLayout = QtWidgets.QHBoxLayout()
-        self.costsStarsLayout.setSpacing(0)
+        self.costsStarsLayout.setSpacing(3)
         self.costsStarsLayout.setObjectName("costsStarsLayout")
         self.costsStar_1 = QtWidgets.QPushButton(self.mainWidget)
         self.costsStar_1.setMinimumSize(QtCore.QSize(30, 30))
@@ -88,13 +117,15 @@ class Ui_destinationPreviewWindow(object):
         self.costsStarsLayout.addWidget(self.costsStar_5)
         self.costsLayout.addLayout(self.costsStarsLayout)
         self.verticalLayout.addLayout(self.costsLayout)
+
+            # Profitability
         self.profitabilityLayout = QtWidgets.QHBoxLayout()
         self.profitabilityLayout.setObjectName("profitabilityLayout")
         self.profitabilityLabel = QtWidgets.QLabel(self.mainWidget)
         self.profitabilityLabel.setObjectName("profitabilityLabel")
         self.profitabilityLayout.addWidget(self.profitabilityLabel, 0, QtCore.Qt.AlignHCenter)
         self.profitabilityStarsLayout = QtWidgets.QHBoxLayout()
-        self.profitabilityStarsLayout.setSpacing(0)
+        self.profitabilityStarsLayout.setSpacing(3)
         self.profitabilityStarsLayout.setObjectName("profitabilityStarsLayout")
         self.profitabilityStar_1 = QtWidgets.QPushButton(self.mainWidget)
         self.profitabilityStar_1.setMinimumSize(QtCore.QSize(30, 30))
@@ -123,13 +154,15 @@ class Ui_destinationPreviewWindow(object):
         self.profitabilityStarsLayout.addWidget(self.profitabilityStar_5)
         self.profitabilityLayout.addLayout(self.profitabilityStarsLayout)
         self.verticalLayout.addLayout(self.profitabilityLayout)
+
+            # Attractions
         self.attractionsLayout = QtWidgets.QHBoxLayout()
         self.attractionsLayout.setObjectName("attractionsLayout")
         self.attractionsLabel = QtWidgets.QLabel(self.mainWidget)
         self.attractionsLabel.setObjectName("attractionsLabel")
         self.attractionsLayout.addWidget(self.attractionsLabel, 0, QtCore.Qt.AlignHCenter)
         self.attractionsStarsLayout = QtWidgets.QHBoxLayout()
-        self.attractionsStarsLayout.setSpacing(0)
+        self.attractionsStarsLayout.setSpacing(3)
         self.attractionsStarsLayout.setObjectName("attractionsStarsLayout")
         self.attractionsStar_1 = QtWidgets.QPushButton(self.mainWidget)
         self.attractionsStar_1.setMinimumSize(QtCore.QSize(30, 30))
@@ -158,13 +191,15 @@ class Ui_destinationPreviewWindow(object):
         self.attractionsStarsLayout.addWidget(self.attractionsStar_5)
         self.attractionsLayout.addLayout(self.attractionsStarsLayout)
         self.verticalLayout.addLayout(self.attractionsLayout)
+
+            # Transport
         self.transportLayout = QtWidgets.QHBoxLayout()
         self.transportLayout.setObjectName("transportLayout")
         self.transportLabel = QtWidgets.QLabel(self.mainWidget)
         self.transportLabel.setObjectName("transportLabel")
         self.transportLayout.addWidget(self.transportLabel, 0, QtCore.Qt.AlignHCenter)
         self.transportStarsLayout = QtWidgets.QHBoxLayout()
-        self.transportStarsLayout.setSpacing(0)
+        self.transportStarsLayout.setSpacing(3)
         self.transportStarsLayout.setObjectName("transportStarsLayout")
         self.transportStar_1 = QtWidgets.QPushButton(self.mainWidget)
         self.transportStar_1.setMinimumSize(QtCore.QSize(30, 30))
@@ -193,13 +228,15 @@ class Ui_destinationPreviewWindow(object):
         self.transportStarsLayout.addWidget(self.transportStar_5)
         self.transportLayout.addLayout(self.transportStarsLayout)
         self.verticalLayout.addLayout(self.transportLayout)
+
+            # Gastronomy
         self.gastronomyLayout = QtWidgets.QHBoxLayout()
         self.gastronomyLayout.setObjectName("gastronomyLayout")
         self.gastronomyLabel = QtWidgets.QLabel(self.mainWidget)
         self.gastronomyLabel.setObjectName("gastronomyLabel")
         self.gastronomyLayout.addWidget(self.gastronomyLabel, 0, QtCore.Qt.AlignHCenter)
         self.gastronomyStarsLayout = QtWidgets.QHBoxLayout()
-        self.gastronomyStarsLayout.setSpacing(0)
+        self.gastronomyStarsLayout.setSpacing(3)
         self.gastronomyStarsLayout.setObjectName("gastronomyStarsLayout")
         self.gastronomyStar_1 = QtWidgets.QPushButton(self.mainWidget)
         self.gastronomyStar_1.setMinimumSize(QtCore.QSize(30, 30))
@@ -228,13 +265,15 @@ class Ui_destinationPreviewWindow(object):
         self.gastronomyStarsLayout.addWidget(self.gastronomyStar_5)
         self.gastronomyLayout.addLayout(self.gastronomyStarsLayout)
         self.verticalLayout.addLayout(self.gastronomyLayout)
+
+            # Landscapes
         self.landscapesLayout = QtWidgets.QHBoxLayout()
         self.landscapesLayout.setObjectName("landscapesLayout")
         self.lanscapesLabel = QtWidgets.QLabel(self.mainWidget)
         self.lanscapesLabel.setObjectName("lanscapesLabel")
         self.landscapesLayout.addWidget(self.lanscapesLabel, 0, QtCore.Qt.AlignHCenter)
         self.landscapesStarsLayout = QtWidgets.QHBoxLayout()
-        self.landscapesStarsLayout.setSpacing(0)
+        self.landscapesStarsLayout.setSpacing(3)
         self.landscapesStarsLayout.setObjectName("landscapesStarsLayout")
         self.lanscapesStar_1 = QtWidgets.QPushButton(self.mainWidget)
         self.lanscapesStar_1.setMinimumSize(QtCore.QSize(30, 30))
@@ -263,17 +302,15 @@ class Ui_destinationPreviewWindow(object):
         self.landscapesStarsLayout.addWidget(self.lanscapesStar_5)
         self.landscapesLayout.addLayout(self.landscapesStarsLayout)
         self.verticalLayout.addLayout(self.landscapesLayout)
+
+            # Avarge score
         self.avarge_scoreLabel = QtWidgets.QLabel(self.mainWidget)
         font = QtGui.QFont()
         font.setPointSize(13)
         self.avarge_scoreLabel.setFont(font)
         self.avarge_scoreLabel.setObjectName("avarge_scoreLabel")
-        self.verticalLayout.addWidget(self.avarge_scoreLabel)\
-        
-        #Edited
-        self.conn = sqlite3.connect("database.db")
-        self.cur = self.conn.cursor()
-        self.selectedItem = selectedItem
+        self.verticalLayout.addWidget(self.avarge_scoreLabel)
+
         self.loadData()
 
         self.retranslateUi(destinationPreviewWindow)
@@ -323,7 +360,7 @@ class Ui_destinationPreviewWindow(object):
         self.lanscapesStar_4.setText(_translate("destinationPreviewWindow", "★"))
         self.lanscapesStar_5.setText(_translate("destinationPreviewWindow", "★"))
         self.avarge_scoreLabel.setText(_translate("destinationPreviewWindow", "Avarge score: "))
-    
+
     def loadData(self):
         self.cur.execute("SELECT * FROM destinations WHERE name=?", (self.selectedItem,))
         data = self.cur.fetchall()[0]
