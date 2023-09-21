@@ -238,21 +238,37 @@ class Ui_destinationPreviewWindow(object):
         self.avarge_scoreLabel.setText(_translate("destinationPreviewWindow", "Avarge score: "))
 
     def loadData(self):
-        self.cur.execute("SELECT * FROM destinations WHERE name=?", (self.selectedItem,))
+        self.cur.execute("SELECT name,country,town,description,costs,profitability,attractions,transport,gastronomy,landscapes FROM destinations WHERE name=?", (self.selectedItem,))
         data = self.cur.fetchall()[0]
 
-        self.namePlainTextEdit.setPlainText(data[1])
+        self.namePlainTextEdit.setPlainText(data[0])
         self.namePlainTextEdit.setReadOnly(True)
 
-        self.countryPlainTextEdit.setPlainText(data[2])
+        self.countryPlainTextEdit.setPlainText(data[1])
         self.countryPlainTextEdit.setReadOnly(True)
 
-        self.townPlainTextEdit.setPlainText(data[3])
+        self.townPlainTextEdit.setPlainText(data[2])
         self.townPlainTextEdit.setReadOnly(True)
 
-        self.descPlainTextEdit.setPlainText(data[4])
+        self.descPlainTextEdit.setPlainText(data[3])
         self.descPlainTextEdit.setReadOnly(True)
 
-        if data[5] != None:
-            for i in range(1,data[5]):
-                pass
+        allStarButtons = [self.costsStarButtons, 
+                          self.profitabilityStarButtons,
+                          self.attractionsStarButtons,
+                          self.transportStarButtons,
+                          self.gastronomyStarButtons,
+                          self.landscapesStarButtons]
+        
+        allStarsCount = [data[4], data[5], data[6], data[7], data[8], data[9]] 
+
+        for i in range(6):
+            self.updateStars(allStarButtons[i], allStarsCount[i])
+
+    
+    def updateStars(self, starButtons, stars):
+        for x, star_button in enumerate(starButtons):
+            if x < stars:
+                star_button.setStyleSheet("color: yellow;")
+            else:
+                star_button.setStyleSheet("color: gray;")

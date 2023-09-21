@@ -63,6 +63,7 @@ class Ui_destinationManagerWindow(object):
         self.destinationLabel.setObjectName("destinationLabel")
         self.verticalLayout_4.addWidget(self.destinationLabel, 0, QtCore.Qt.AlignHCenter)
         self.destinationList = QtWidgets.QListWidget(self.destinationWidget)
+        self.destinationList.setSelectionMode(QtWidgets.QListWidget.SingleSelection)
         self.destinationList.setObjectName("destinationList")
         self.verticalLayout_4.addWidget(self.destinationList)
         self.horizontalLayout.addWidget(self.destinationWidget)
@@ -176,7 +177,7 @@ class Ui_destinationManagerWindow(object):
             town = self.addUi.townPlainTextEdit.toPlainText().strip()
             desc = self.addUi.descPlainTextEdit.toPlainText()
 
-            self.cur.execute("INSERT INTO destinations (name, country, town, description) VALUES (?,?,?,?)", (name, country, town, desc))
+            self.cur.execute("INSERT INTO destinations (name,country,town,description,costs,profitability,attractions,transport,gastronomy,landscapes) VALUES (?,?,?,?,?,?,?,?,?)", (name, country, town, desc,0,0,0,0,0,0))
             self.conn.commit()
             
             self.loadDestinationWidget()
@@ -247,7 +248,6 @@ class Ui_destinationManagerWindow(object):
     def deleteClicked(self):
         # TODO for sure?
         selectedItem = self.destinationList.selectedItems()[0].text()
-        print(selectedItem)
 
         self.cur.execute("DELETE FROM destinations WHERE name=?", (selectedItem,))
         self.conn.commit()

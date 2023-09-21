@@ -245,24 +245,28 @@ class Ui_destinationPreviewWindow(object):
         self.avarge_scoreLabel.setText(_translate("destinationPreviewWindow", "Avarge score: "))
 
     def loadData(self):
-        self.cur.execute("SELECT * FROM destinations WHERE name=?", (self.selectedItem,))
+        self.cur.execute("SELECT name,country,town,description,costs,profitability,attractions,transport,gastronomy,landscapes FROM destinations WHERE name=?", (self.selectedItem,))
         data = self.cur.fetchall()[0]
 
-        self.namePlainTextEdit.setPlainText(data[1])
-        self.countryPlainTextEdit.setPlainText(data[2])
-        self.townPlainTextEdit.setPlainText(data[3])
-        self.descPlainTextEdit.setPlainText(data[4])
+        self.namePlainTextEdit.setPlainText(data[0])
+        self.countryPlainTextEdit.setPlainText(data[1])
+        self.townPlainTextEdit.setPlainText(data[2])
+        self.descPlainTextEdit.setPlainText(data[3])
 
-        costsStars = data[5]
-        attractionsStars = data[6]
-        transportStars = data[7]
-        gastronomyStars = data[8]
-        landscapesStars = data[9]
-        score_avarge = data[10]
+        allStarButtons = [self.costsStarButtons, 
+                          self.profitabilityStarButtons,
+                          self.attractionsStarButtons,
+                          self.transportStarButtons,
+                          self.gastronomyStarButtons,
+                          self.landscapesStarButtons]
+        
+        allStarsCount = [data[4], data[5], data[6], data[7], data[8], data[9]] 
+
+        for i in range(6):
+            self.updateStars(allStarButtons[i], allStarsCount[i])
 
     def onStarClicked(self, starButtons):
         sender = self.destinationPreviewWindow.sender()
-        print(sender.text())
         stars = starButtons.index(sender) + 1
         self.updateStars(starButtons, stars)
 
